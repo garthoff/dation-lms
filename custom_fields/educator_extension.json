@@ -1,0 +1,24 @@
+{
+  "doctype": "Custom Field",
+  "dt": "Educator",
+  "fields": [
+    {
+      "fieldname": "logo",
+      "fieldtype": "Attach Image",
+      "label": "Logo",
+      "insert_after": "name"
+    },
+    {
+      "fieldname": "brand_color",
+      "fieldtype": "Color",
+      "label": "Brand Color",
+      "insert_after": "logo"
+    },
+    {
+      "fieldname": "brand_title",
+      "fieldtype": "Data",
+      "label": "Brand Title",
+      "insert_after": "brand_color"
+    }
+  ]
+}

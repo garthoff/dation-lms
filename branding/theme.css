@@ -1,0 +1,14 @@
+/* Default fallback branding */
+:root {
+    --primary-color: #0047AB;
+    --secondary-color: #F5F7FA;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+header img.logo {
+    height: 60px;
+}

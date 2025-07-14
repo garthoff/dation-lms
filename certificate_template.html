@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {{ font-family: Arial, sans-serif; text-align: center; padding: 50px; }}
+        .certificate {{ border: 10px solid #0047AB; padding: 40px; }}
+        h1 {{ font-size: 48px; margin-bottom: 20px; }}
+        .subtitle {{ font-size: 24px; margin-bottom: 30px; }}
+        .footer {{ margin-top: 40px; font-size: 16px; }}
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <h1>Certificate of Completion</h1>
+        <div class="subtitle">This certifies that</div>
+        <h2>{{ student_name }}</h2>
+        <div class="subtitle">has successfully completed</div>
+        <h3>{{ course_title }}</h3>
+        <p>on {{ completion_date }}</p>
+        <div class="footer">
+            Issued by {{ educator }}<br>
+            <img src="{{ qr_url }}" alt="QR Code" width="100"/>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{% extends "templates/web.html" %}
+
+{% block header %}
+<header style="padding: 10px; background: var(--primary-color); color: white;">
+    <img src="{{ logo_url or '/assets/default-logo.png' }}" class="logo" alt="Logo">
+    <h1>{{ brand_title or "Dation LMS" }}</h1>
+</header>
+{% endblock %}
