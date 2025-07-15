@@ -1,0 +1,37 @@
+<h2>Educator Dashboard</h2>
+<p>Below is a summary of enrollments for your courses.</p>
+
+<input type="text" id="educator-id" placeholder="Enter your Educator ID" />
+<button onclick="loadEducatorCourses()">Load Courses</button>
+
+<div id="course-enrollments"></div>
+
+<script>
+function loadEducatorCourses() {
+  const educatorId = document.getElementById('educator-id').value;
+  fetch('/api/method/branded_lms.api.lms_api.get_courses_for_educator?educator=' + educatorId)
+    .then(response => response.json())
+    .then(data => {
+      const div = document.getElementById('course-enrollments');
+      if (!data.message || data.message.length === 0) {
+        div.innerHTML = "<p>No courses found for this educator.</p>";
+        return;
+      }
+
+      const tableRows = data.message.map(course => \`
+        <tr>
+          <td>\${course.course}</td>
+          <td>\${course.price_override || "-"}</td>
+        </tr>
+      \`).join("");
+
+      div.innerHTML = \`
+        <h3>Courses Assigned to Educator</h3>
+        <table border="1" cellpadding="5">
+          <tr><th>Course</th><th>Price Override</th></tr>
+          \${tableRows}
+        </table>
+      \`;
+    });
+}
+</script>

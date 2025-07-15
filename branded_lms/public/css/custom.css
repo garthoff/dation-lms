@@ -1,0 +1,2 @@
+body { background: var(--brand-bg, #f4f4f4); }
+.navbar { background-color: var(--brand-primary, #004080); }

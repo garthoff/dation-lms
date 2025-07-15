@@ -1,0 +1,20 @@
+[
+  {
+    "doctype": "Custom Field",
+    "dt": "User",
+    "fieldname": "educator",
+    "label": "Educator",
+    "fieldtype": "Link",
+    "options": "Educator",
+    "insert_after": "full_name"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "User",
+    "fieldname": "company",
+    "label": "Company",
+    "fieldtype": "Link",
+    "options": "Company",
+    "insert_after": "educator"
+  }
+]

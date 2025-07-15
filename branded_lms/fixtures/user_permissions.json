@@ -1,0 +1,14 @@
+[
+  {
+    "doctype": "User Permission",
+    "user": "Administrator",
+    "allow": "Educator",
+    "for_value": "Demo Educator"
+  },
+  {
+    "doctype": "User Permission",
+    "user": "Administrator",
+    "allow": "Company",
+    "for_value": "Demo Company"
+  }
+]

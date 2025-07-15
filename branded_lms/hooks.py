@@ -1,0 +1,10 @@
+app_name = "branded_lms"
+app_title = "Branded LMS"
+app_publisher = "Tim Garthoff"
+app_description = "Frappe LMS with custom branding per Educator or Company"
+app_icon = "octicon octicon-book"
+app_color = "blue"
+app_email = "t.garthoff@curious-inc.com"
+app_license = "MIT"
+
+app_include_css = "/assets/branded_lms/css/custom.css"

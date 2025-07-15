@@ -1,0 +1,59 @@
+[
+  {
+    "doctype": "Custom DocPerm",
+    "role": "Educator",
+    "parent": "Student",
+    "permlevel": 0,
+    "read": 1,
+    "write": 1,
+    "create": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "Educator",
+    "parent": "Course Enrollment",
+    "permlevel": 0,
+    "read": 1,
+    "write": 1,
+    "create": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "HR Manager",
+    "parent": "Student",
+    "permlevel": 0,
+    "read": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "HR Team Manager",
+    "parent": "Student",
+    "permlevel": 0,
+    "read": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "Instructor",
+    "parent": "Course Enrollment",
+    "permlevel": 0,
+    "read": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "Creator",
+    "parent": "Course",
+    "permlevel": 0,
+    "read": 1,
+    "write": 1,
+    "create": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "Company",
+    "parent": "Course Enrollment",
+    "permlevel": 0,
+    "read": 1,
+    "write": 1,
+    "create": 1
+  }
+]

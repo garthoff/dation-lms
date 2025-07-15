@@ -1,0 +1,36 @@
+<h2>Student Dashboard</h2>
+<p>Welcome! Below are your enrolled courses and progress status:</p>
+
+<table id="enrollment-table" border="1" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Course</th>
+      <th>Status</th>
+      <th>Completion Date</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  fetch('/api/method/branded_lms.api.lms_api.get_student_progress?student=' + frappe.session.user)
+    .then(response => response.json())
+    .then(data => {
+      const tbody = document.querySelector('#enrollment-table tbody');
+      if (data.message && data.message.length > 0) {
+        data.message.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${row.course}</td>
+            <td>${row.is_completed ? "✅ Completed" : "⏳ In Progress"}</td>
+            <td>${row.completion_date || "-"}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } else {
+        tbody.innerHTML = '<tr><td colspan="3">No enrollments found.</td></tr>';
+      }
+    });
+});
+</script>

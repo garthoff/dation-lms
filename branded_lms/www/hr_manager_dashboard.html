@@ -1,0 +1,33 @@
+
+<!-- hr_manager_dashboard.html -->
+<div class="dashboard">
+  <h2>HR Manager Dashboard</h2>
+  <div>
+    <label for="company">Select Company:</label>
+    <input type="text" id="company" placeholder="Company ID" />
+    <button onclick="loadProgress()">Load Progress</button>
+  </div>
+  <div id="progress-table"></div>
+</div>
+
+<script>
+function loadProgress() {
+  const company = document.getElementById('company').value;
+  fetch('/api/method/branded_lms.api.lms_api.get_company_progress?company=' + company)
+    .then(res => res.json())
+    .then(data => {
+      const table = data.message.map(row => \`
+        <tr>
+          <td>\${row.student}</td>
+          <td>\${row.course}</td>
+          <td>\${row.is_completed ? "✅" : "❌"}</td>
+          <td>\${row.completion_date || ""}</td>
+        </tr>\`).join('');
+      document.getElementById('progress-table').innerHTML = `
+        <table border="1" cellpadding="5">
+          <tr><th>Student</th><th>Course</th><th>Completed</th><th>Date</th></tr>
+          \${table}
+        </table>`;
+    });
+}
+</script>

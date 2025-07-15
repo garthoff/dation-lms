@@ -1,0 +1,22 @@
+[
+  {
+    "from_route": "/hr_manager_dashboard",
+    "to_route": "hr_manager_dashboard",
+    "role": "HR Manager"
+  },
+  {
+    "from_route": "/educator_dashboard",
+    "to_route": "educator_dashboard",
+    "role": "Educator"
+  },
+  {
+    "from_route": "/student_dashboard",
+    "to_route": "student_dashboard",
+    "role": "Student"
+  },
+  {
+    "from_route": "/company_dashboard",
+    "to_route": "company_dashboard",
+    "role": "Company"
+  }
+]
