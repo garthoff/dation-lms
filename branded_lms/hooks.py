@@ -55,10 +55,10 @@ email_templates = {
 # Server Scripts
 doc_events = {
     "Course Enrollment": {
-        "on_update": "branded_lms.server_script.course_hooks.check_completion_and_send_email"
+        "on_update": "branded_lms.course_hooks.check_completion_and_send_email"
     },
     "Course Session": {
-        "on_update": "branded_lms.server_script.session_hooks.send_capacity_warning"
+        "on_update": "branded_lms.session_hooks.send_capacity_warning"
     },
     "User": {
         "after_insert": "branded_lms.api.user_hooks.assign_roles_automatically"
