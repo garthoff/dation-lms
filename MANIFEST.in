@@ -4,15 +4,16 @@ include *.json
 include *.md
 include *.py
 include *.txt
-recursive-include civil_contracting *.css
-recursive-include civil_contracting *.csv
-recursive-include civil_contracting *.html
-recursive-include civil_contracting *.ico
-recursive-include civil_contracting *.js
-recursive-include civil_contracting *.json
-recursive-include civil_contracting *.md
-recursive-include civil_contracting *.png
-recursive-include civil_contracting *.py
-recursive-include civil_contracting *.svg
-recursive-include civil_contracting *.txt
-recursive-exclude civil_contracting *.pyc
+recursive-include branded_lms/public *
+recursive-include branded_lms *.css
+recursive-include branded_lms *.csv
+recursive-include branded_lms *.html
+recursive-include branded_lms *.ico
+recursive-include branded_lms *.js
+recursive-include branded_lms *.json
+recursive-include branded_lms *.md
+recursive-include branded_lms *.png
+recursive-include branded_lms *.py
+recursive-include branded_lms *.svg
+recursive-include branded_lms *.txt
+recursive-exclude branded_lms *.pyc
