@@ -6,7 +6,8 @@ app_email = "info@yourcompany.com"
 app_license = "MIT"
 
 # Includes in <head>
-app_include_css = "/assets/branded_lms/css/custom.css"
+# Use the built CSS bundle generated via build.json
+app_include_css = "/assets/branded_lms/css/branded_lms.css"
 app_include_js = "/assets/branded_lms/js/branding.js"
 
 # Fixtures (include all custom DocTypes, roles, permissions)
