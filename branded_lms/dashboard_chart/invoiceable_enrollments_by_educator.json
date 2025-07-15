@@ -1,0 +1,10 @@
+{
+  "doctype": "Dashboard Chart",
+  "chart_name": "Invoiceable Enrollments by Educator",
+  "chart_type": "Group By",
+  "document_type": "Course Enrollment",
+  "filters_json": "{\"billing_status\": [\"=\", \"Pending\"]}",
+  "group_by_based_on": "educator",
+  "type": "Bar",
+  "is_custom": 1
+}

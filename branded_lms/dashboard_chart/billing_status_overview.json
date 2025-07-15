@@ -1,0 +1,9 @@
+{
+  "doctype": "Dashboard Chart",
+  "chart_name": "Billing Status Overview",
+  "chart_type": "Group By",
+  "document_type": "Course Enrollment",
+  "group_by_based_on": "billing_status",
+  "type": "Donut",
+  "is_custom": 1
+}

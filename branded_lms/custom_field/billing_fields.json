@@ -1,0 +1,25 @@
+[
+  {
+    "dt": "Course Enrollment",
+    "fieldname": "billing_source",
+    "label": "Billing Source",
+    "fieldtype": "Select",
+    "options": "Dation\nEducator\nCompany",
+    "insert_after": "enrollment_source"
+  },
+  {
+    "dt": "Course Enrollment",
+    "fieldname": "billing_status",
+    "label": "Billing Status",
+    "fieldtype": "Select",
+    "options": "Pending\nInvoiced\nPaid\nFailed",
+    "insert_after": "billing_source"
+  },
+  {
+    "dt": "Course Enrollment",
+    "fieldname": "invoice_reference",
+    "label": "Invoice Reference",
+    "fieldtype": "Data",
+    "insert_after": "billing_status"
+  }
+]

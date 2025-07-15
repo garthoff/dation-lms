@@ -1,0 +1,8 @@
+{
+  "doctype": "Server Script",
+  "name": "Get Billing Report",
+  "module": "Branded LMS",
+  "script_type": "API",
+  "api_method": "get_billing_report",
+  "script": "\nimport frappe\nfrom frappe.utils import getdate\n\n@frappe.whitelist()\ndef get_billing_report(entity_type, entity_name, start_date=None, end_date=None):\n    filters = f\"where billing_source = '{entity_type}' and {entity_type.lower()} = %s\"\n    args = [entity_name]\n\n    if start_date and end_date:\n        filters += \" and creation between %s and %s\"\n        args.extend([start_date, end_date])\n\n    results = frappe.db.sql(f'''\n        select name, student, course, billing_status, invoice_reference, creation\n        from `tabCourse Enrollment`\n        {filters}\n        order by creation desc\n    ''', args, as_dict=True)\n\n    return results\n"
+}

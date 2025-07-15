@@ -1,0 +1,11 @@
+{
+  "doctype": "Dashboard Chart",
+  "chart_name": "Monthly Invoiceable Enrollments",
+  "chart_type": "Time Series",
+  "document_type": "Course Enrollment",
+  "filters_json": "{\"billing_status\": [\"=\", \"Pending\"]}",
+  "based_on": "creation",
+  "time_interval": "Monthly",
+  "type": "Line",
+  "is_custom": 1
+}
