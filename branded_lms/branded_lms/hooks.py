@@ -1,7 +1,11 @@
+from . import __version__ as app_version
+
 app_name = "branded_lms"
 app_title = "Branded LMS"
 app_publisher = "Your Company"
 app_description = "LMS integration for Dation & Educators"
+app_icon = "octicon octicon-zap"
+app_color = "grey"
 app_email = "info@yourcompany.com"
 app_license = "MIT"
 
