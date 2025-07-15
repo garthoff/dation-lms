@@ -1,0 +1,127 @@
+[
+  {
+    "role": "Educator Admin",
+    "doctype": "Educator",
+    "read": 1,
+    "write": 1,
+    "create": 1,
+    "delete": 0
+  },
+  {
+    "role": "Educator Admin",
+    "doctype": "Course Access",
+    "read": 1,
+    "write": 1,
+    "create": 1,
+    "delete": 1
+  },
+  {
+    "role": "Educator Admin",
+    "doctype": "Course Session",
+    "read": 1,
+    "write": 1,
+    "create": 1,
+    "delete": 1
+  },
+  {
+    "role": "Educator Admin",
+    "doctype": "Course Session Attendance",
+    "read": 1,
+    "write": 1,
+    "create": 1,
+    "delete": 0
+  },
+  {
+    "role": "HR Manager",
+    "doctype": "Company",
+    "read": 1,
+    "write": 1,
+    "create": 1,
+    "delete": 0
+  },
+  {
+    "role": "HR Manager",
+    "doctype": "Organizational Unit",
+    "read": 1,
+    "write": 1,
+    "create": 1,
+    "delete": 0
+  },
+  {
+    "role": "HR Manager",
+    "doctype": "HR Team Manager Assignment",
+    "read": 1,
+    "write": 1,
+    "create": 1,
+    "delete": 0
+  },
+  {
+    "role": "HR Team Manager",
+    "doctype": "HR Team Manager Assignment",
+    "read": 1
+  },
+  {
+    "role": "HR Team Manager",
+    "doctype": "Course Session Attendance",
+    "read": 1
+  },
+  {
+    "role": "Instructor",
+    "doctype": "Course Session",
+    "read": 1
+  },
+  {
+    "role": "Instructor",
+    "doctype": "Course Session Attendance",
+    "read": 1,
+    "write": 1
+  },
+  {
+    "role": "Student",
+    "doctype": "Course Session",
+    "read": 1
+  },
+  {
+    "role": "Student",
+    "doctype": "Course Session Attendance",
+    "read": 1
+  },
+  {
+    "role": "Company Creator",
+    "doctype": "Course",
+    "read": 1,
+    "write": 1,
+    "create": 1,
+    "delete": 1
+  },
+  {
+    "role": "Third Party Creator",
+    "doctype": "Course",
+    "read": 1,
+    "write": 1,
+    "create": 1,
+    "delete": 1
+  },
+  {
+    "role": "Educator Creator",
+    "doctype": "Course",
+    "read": 1,
+    "write": 1,
+    "create": 1,
+    "delete": 1
+  },
+  {
+    "role": "Educator Admin",
+    "doctype": "Certificate Template",
+    "read": 1,
+    "write": 1,
+    "create": 1
+  },
+  {
+    "role": "Company Creator",
+    "doctype": "Certificate Template",
+    "read": 1,
+    "write": 1,
+    "create": 1
+  }
+]

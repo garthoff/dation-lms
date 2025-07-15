@@ -1,0 +1,24 @@
+name: Frappe Dation LMS CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Bench & Frappe
+        run: |
+          sudo apt update
+          sudo apt install -y python3-dev python3-pip redis mariadb-server curl wkhtmltopdf xvfb libfontconfig
+          pip install frappe-bench
+          bench init --frappe-branch version-15 frappe-bench
+          cd frappe-bench
+          bench get-app --branch version-15 frappe https://github.com/frappe/frappe
+          bench get-app frappe_dation_lms .

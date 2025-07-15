@@ -1,0 +1,28 @@
+{
+  "doctype": "Certificate Template",
+  "name": "Certificate Template",
+  "fields": [
+    {
+      "fieldname": "template_name",
+      "fieldtype": "Data",
+      "label": "Template Name"
+    },
+    {
+      "fieldname": "html_content",
+      "fieldtype": "Code",
+      "label": "HTML Content",
+      "options": "HTML"
+    },
+    {
+      "fieldname": "used_by",
+      "fieldtype": "Select",
+      "options": "Educator\nCompany\nDation",
+      "label": "Used By"
+    },
+    {
+      "fieldname": "used_by_id",
+      "fieldtype": "Data",
+      "label": "Entity ID"
+    }
+  ]
+}

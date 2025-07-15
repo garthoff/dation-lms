@@ -1,0 +1,23 @@
+{
+  "doctype": "Course Session Attendance",
+  "name": "Course Session Attendance",
+  "fields": [
+    {
+      "fieldname": "session",
+      "fieldtype": "Link",
+      "options": "Course Session",
+      "label": "Session"
+    },
+    {
+      "fieldname": "student",
+      "fieldtype": "Link",
+      "options": "Student",
+      "label": "Student"
+    },
+    {
+      "fieldname": "present",
+      "fieldtype": "Check",
+      "label": "Present"
+    }
+  ]
+}

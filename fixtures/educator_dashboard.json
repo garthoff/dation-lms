@@ -1,0 +1,14 @@
+{
+  "doctype": "Dashboard",
+  "module": "LMS",
+  "name": "Educator Dashboard",
+  "charts": [
+    "Enrollments per Course",
+    "Active Sessions",
+    "Completion Rate by Course"
+  ],
+  "card_label": "Educator Overview",
+  "roles": [
+    "Educator Admin"
+  ]
+}

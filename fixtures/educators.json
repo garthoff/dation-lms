@@ -1,0 +1,10 @@
+[
+  {
+    "doctype": "Educator",
+    "educator_name": "DrivePro Academy",
+    "email": "admin@drivepro.com",
+    "branding_color": "#0047AB",
+    "logo": "",
+    "can_create_courses": 0
+  }
+]

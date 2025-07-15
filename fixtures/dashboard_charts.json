@@ -1,0 +1,37 @@
+[
+  {
+    "doctype": "Dashboard Chart",
+    "chart_name": "Monthly Enrollments per Educator",
+    "chart_type": "Line",
+    "document_type": "Course Enrollment",
+    "based_on": "creation",
+    "timespan": "Last 6 Months",
+    "time_interval": "Monthly",
+    "filters_json": "{}",
+    "group_by_type": "Count",
+    "is_public": 0
+  },
+  {
+    "doctype": "Dashboard Chart",
+    "chart_name": "Completed Courses by Company",
+    "chart_type": "Bar",
+    "document_type": "Course Enrollment",
+    "based_on": "course",
+    "timespan": "Last 30 Days",
+    "time_interval": "Daily",
+    "filters_json": "{\"is_completed\":1}",
+    "group_by_type": "Count",
+    "is_public": 0
+  },
+  {
+    "doctype": "Dashboard Chart",
+    "chart_name": "Active Students per Educator",
+    "chart_type": "Donut",
+    "document_type": "Student",
+    "based_on": "educator",
+    "timespan": "Last Year",
+    "filters_json": "{}",
+    "group_by_type": "Count",
+    "is_public": 0
+  }
+]

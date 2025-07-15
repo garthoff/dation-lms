@@ -1,0 +1,12 @@
+[
+  {
+    "doctype": "Organizational Unit",
+    "unit_name": "Unit A",
+    "company": "FleetCorp B.V."
+  },
+  {
+    "doctype": "Organizational Unit",
+    "unit_name": "Unit B",
+    "company": "FleetCorp B.V."
+  }
+]

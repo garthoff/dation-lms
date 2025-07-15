@@ -1,0 +1,27 @@
+{
+  "doctype": "Course Session",
+  "name": "Course Session",
+  "fields": [
+    {
+      "fieldname": "course",
+      "fieldtype": "Link",
+      "options": "Course",
+      "label": "Course"
+    },
+    {
+      "fieldname": "session_date",
+      "fieldtype": "Date",
+      "label": "Session Date"
+    },
+    {
+      "fieldname": "capacity",
+      "fieldtype": "Int",
+      "label": "Capacity"
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Data",
+      "label": "Location"
+    }
+  ]
+}

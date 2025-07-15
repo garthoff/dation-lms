@@ -1,0 +1,9 @@
+[
+  {
+    "doctype": "Company",
+    "company_name": "FleetCorp B.V.",
+    "educator": "DrivePro Academy",
+    "can_create_courses": 1,
+    "primary_contact": "hr@fleetcorp.nl"
+  }
+]

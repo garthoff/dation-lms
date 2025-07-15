@@ -1,0 +1,14 @@
+{
+  "doctype": "Dashboard",
+  "module": "LMS",
+  "name": "HR Manager Dashboard",
+  "charts": [
+    "Enrollments per Month",
+    "Completed Courses by Employee",
+    "Active Students per Unit"
+  ],
+  "card_label": "HR Manager",
+  "roles": [
+    "HR Manager"
+  ]
+}

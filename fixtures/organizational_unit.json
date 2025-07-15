@@ -1,0 +1,17 @@
+{
+  "doctype": "Organizational Unit",
+  "name": "Organizational Unit",
+  "fields": [
+    {
+      "fieldname": "unit_name",
+      "fieldtype": "Data",
+      "label": "Unit Name"
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "options": "Company",
+      "label": "Company"
+    }
+  ]
+}

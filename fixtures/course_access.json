@@ -1,0 +1,16 @@
+[
+  {
+    "doctype": "Course Access",
+    "course": "Traffic Safety Basics",
+    "access_type": "Educator",
+    "educator": "DrivePro Academy",
+    "enabled": 1
+  },
+  {
+    "doctype": "Course Access",
+    "course": "Eco Driving Techniques",
+    "access_type": "Company",
+    "company": "FleetCorp B.V.",
+    "enabled": 1
+  }
+]

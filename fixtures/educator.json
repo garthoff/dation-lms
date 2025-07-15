@@ -1,0 +1,31 @@
+{
+  "doctype": "Educator",
+  "name": "Educator",
+  "fields": [
+    {
+      "fieldname": "educator_name",
+      "fieldtype": "Data",
+      "label": "Educator Name"
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email"
+    },
+    {
+      "fieldname": "branding_color",
+      "fieldtype": "Color",
+      "label": "Branding Color"
+    },
+    {
+      "fieldname": "logo",
+      "fieldtype": "Attach Image",
+      "label": "Logo"
+    },
+    {
+      "fieldname": "can_create_courses",
+      "fieldtype": "Check",
+      "label": "Can Create Courses"
+    }
+  ]
+}

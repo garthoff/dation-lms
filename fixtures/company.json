@@ -1,0 +1,27 @@
+{
+  "doctype": "Company",
+  "name": "Company",
+  "fields": [
+    {
+      "fieldname": "company_name",
+      "fieldtype": "Data",
+      "label": "Company Name"
+    },
+    {
+      "fieldname": "educator",
+      "fieldtype": "Link",
+      "options": "Educator",
+      "label": "Educator"
+    },
+    {
+      "fieldname": "can_create_courses",
+      "fieldtype": "Check",
+      "label": "Can Create Courses"
+    },
+    {
+      "fieldname": "primary_contact",
+      "fieldtype": "Data",
+      "label": "Primary Contact"
+    }
+  ]
+}
