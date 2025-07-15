@@ -1,0 +1,23 @@
+{
+  "doctype": "Dashboard",
+  "name": "Dation Admin Dashboard",
+  "module": "Branded LMS",
+  "charts": [
+    {
+      "chart": "Monthly Enrollments",
+      "label": "Enrollments"
+    },
+    {
+      "chart": "Completed Courses by Company",
+      "label": "Completions"
+    },
+    {
+      "chart": "Active Students per Educator",
+      "label": "Active Students"
+    }
+  ],
+  "roles": [
+    "Dation Admin"
+  ],
+  "is_default": 0
+}

@@ -1,0 +1,123 @@
+[
+  {
+    "doctype": "Role",
+    "name": "Educator"
+  },
+  {
+    "doctype": "Role",
+    "name": "HR Manager"
+  },
+  {
+    "doctype": "Role",
+    "name": "HR Team Manager"
+  },
+  {
+    "doctype": "Role",
+    "name": "Student"
+  },
+  {
+    "doctype": "Role",
+    "name": "Company"
+  },
+  {
+    "doctype": "Role",
+    "name": "Instructor"
+  },
+  {
+    "doctype": "Role",
+    "name": "Creator"
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "Educator",
+    "parent": "Student",
+    "permlevel": 0,
+    "read": 1,
+    "write": 1,
+    "create": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "Educator",
+    "parent": "Course Enrollment",
+    "permlevel": 0,
+    "read": 1,
+    "write": 1,
+    "create": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "HR Manager",
+    "parent": "Student",
+    "permlevel": 0,
+    "read": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "HR Team Manager",
+    "parent": "Student",
+    "permlevel": 0,
+    "read": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "Instructor",
+    "parent": "Course Enrollment",
+    "permlevel": 0,
+    "read": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "Creator",
+    "parent": "Course",
+    "permlevel": 0,
+    "read": 1,
+    "write": 1,
+    "create": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "role": "Company",
+    "parent": "Course Enrollment",
+    "permlevel": 0,
+    "read": 1,
+    "write": 1,
+    "create": 1
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "parent": "Web Page",
+    "role": "Student",
+    "permlevel": 0,
+    "read": 1,
+    "parentfield": "permissions",
+    "parenttype": "Web Page"
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "parent": "Web Page",
+    "role": "Educator",
+    "permlevel": 0,
+    "read": 1,
+    "parentfield": "permissions",
+    "parenttype": "Web Page"
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "parent": "Web Page",
+    "role": "Company",
+    "permlevel": 0,
+    "read": 1,
+    "parentfield": "permissions",
+    "parenttype": "Web Page"
+  },
+  {
+    "doctype": "Custom DocPerm",
+    "parent": "Web Page",
+    "role": "HR Manager",
+    "permlevel": 0,
+    "read": 1,
+    "parentfield": "permissions",
+    "parenttype": "Web Page"
+  }
+]

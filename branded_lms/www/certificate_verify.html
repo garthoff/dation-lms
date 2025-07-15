@@ -1,0 +1,26 @@
+{% extends "templates/web.html" %}
+{% block page_content %}
+<h2>Certificate Verification</h2>
+<p id="status">Verifying...</p>
+<script>
+    const urlParts = window.location.pathname.split('/');
+    const certId = urlParts[urlParts.length - 1];
+    fetch(`/api/method/branded_lms.api.certificate.verify_certificate?uuid=${certId}`)
+        .then(res => res.json())
+        .then(data => {
+            if (data.message && data.message.valid) {
+                document.getElementById("status").innerHTML = `
+                    ✅ Certificate is valid.<br>
+                    <strong>Student:</strong> ${data.message.student}<br>
+                    <strong>Course:</strong> ${data.message.course}<br>
+                    <strong>Completed On:</strong> ${data.message.completion_date}
+                `;
+            } else {
+                document.getElementById("status").innerHTML = "❌ Certificate not found or invalid.";
+            }
+        })
+        .catch(() => {
+            document.getElementById("status").innerHTML = "❌ Error verifying certificate.";
+        });
+</script>
+{% endblock %}

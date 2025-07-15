@@ -1,0 +1,61 @@
+[
+  {
+    "role": "Educator Admin",
+    "doctype": "Course Enrollment",
+    "read": 1,
+    "write": 1,
+    "create": 1,
+    "if_owner": 0,
+    "permlevel": 0,
+    "match": [
+      [
+        "educator",
+        "=",
+        "user.educator"
+      ]
+    ]
+  },
+  {
+    "role": "HR Manager",
+    "doctype": "Course Enrollment",
+    "read": 1,
+    "create": 1,
+    "match": [
+      [
+        "company",
+        "=",
+        "user.company"
+      ]
+    ]
+  },
+  {
+    "role": "HR Team Manager",
+    "doctype": "Course Enrollment",
+    "read": 1,
+    "match": [
+      [
+        "organizational_unit",
+        "in",
+        "user.organizational_units"
+      ]
+    ]
+  },
+  {
+    "role": "Student",
+    "doctype": "Course Enrollment",
+    "read": 1,
+    "if_owner": 1
+  },
+  {
+    "role": "Instructor",
+    "doctype": "Course Enrollment",
+    "read": 1,
+    "match": [
+      [
+        "course",
+        "in",
+        "get_courses_by_instructor(user.name)"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "doctype": "Server Script",
+  "name": "Auto Assign Roles on User Creation",
+  "script_type": "Event",
+  "reference_doctype": "User",
+  "event": "after_insert",
+  "enabled": 1,
+  "script": "\n# Automatically assign roles based on user email pattern or context\ndef assign_role_and_links(doc, method):\n    import frappe\n\n    # Sample logic to assign roles based on naming conventions or linked fields\n    if \"educator\" in (doc.email or \"\").lower():\n        role = \"Educator Admin\"\n    elif \"hr\" in (doc.email or \"\").lower():\n        role = \"HR Manager\"\n    elif \"team\" in (doc.email or \"\").lower():\n        role = \"HR Team Manager\"\n    elif \"instructor\" in (doc.email or \"\").lower():\n        role = \"Instructor\"\n    else:\n        role = \"Student\"\n\n    # Assign Role\n    if not frappe.db.exists(\"Has Role\", {\"parent\": doc.name, \"role\": role}):\n        doc.add_roles(role)\n        frappe.db.commit()\n\nfrappe.get_doc(\"Server Script\", \"Auto Assign Roles on User Creation\").execute = assign_role_and_links\n"
+}

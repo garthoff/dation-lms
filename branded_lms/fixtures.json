@@ -1,0 +1,16 @@
+{
+  "fixtures": [
+    "Custom Field",
+    "Custom Script",
+    "Custom DocPerm",
+    "Custom Role",
+    "Property Setter",
+    "Translation",
+    "Workspace",
+    "Web Page",
+    "Web Template",
+    "Role Profile",
+    "Web Form",
+    "Portal Menu Item"
+  ]
+}

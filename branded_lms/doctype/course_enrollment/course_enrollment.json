@@ -1,0 +1,108 @@
+{
+  "doctype": "DocType",
+  "name": "Course Enrollment",
+  "module": "Branded LMS",
+  "custom": 1,
+  "fields": [
+    {
+      "fieldname": "student",
+      "fieldtype": "Link",
+      "options": "Student",
+      "label": "Student"
+    },
+    {
+      "fieldname": "course",
+      "fieldtype": "Link",
+      "options": "Course",
+      "label": "Course"
+    },
+    {
+      "fieldname": "educator",
+      "fieldtype": "Link",
+      "options": "Educator",
+      "label": "Educator"
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "options": "Company",
+      "label": "Company"
+    },
+    {
+      "fieldname": "progress",
+      "fieldtype": "Int",
+      "label": "Progress (%)"
+    },
+    {
+      "fieldname": "is_completed",
+      "fieldtype": "Check",
+      "label": "Is Completed"
+    },
+    {
+      "fieldname": "completion_date",
+      "fieldtype": "Date",
+      "label": "Completion Date"
+    },
+    {
+      "fieldname": "certificate_issued",
+      "fieldtype": "Check",
+      "label": "Certificate Issued"
+    },
+    {
+      "fieldname": "certificate_uuid",
+      "fieldtype": "Data",
+      "label": "Certificate UUID",
+      "read_only": 1
+    },
+    {
+      "fieldname": "enrollment_source",
+      "fieldtype": "Select",
+      "label": "Enrollment Source",
+      "options": "Self\nEducator\nCompany\nHR Manager"
+    },
+    {
+      "fieldname": "billing_status",
+      "fieldtype": "Select",
+      "label": "Billing Status",
+      "options": "Pending\nPaid\nFailed"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 0
+    },
+    {
+      "role": "Educator Admin",
+      "read": 1,
+      "write": 1,
+      "create": 1
+    },
+    {
+      "role": "Instructor",
+      "read": 1
+    },
+    {
+      "role": "HR Manager",
+      "read": 1,
+      "create": 1
+    },
+    {
+      "role": "HR Team Manager",
+      "read": 1
+    },
+    {
+      "role": "Student",
+      "read": 1
+    }
+  ],
+  "is_submittable": 0,
+  "istable": 0,
+  "editable_grid": 1,
+  "autoname": "field:student",
+  "track_changes": 1
+}
