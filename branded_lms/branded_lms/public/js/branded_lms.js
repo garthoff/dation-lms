@@ -1,1 +1,1 @@
-// Branded LMS JS
+console.log("branded_lms loaded");

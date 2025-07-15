@@ -5,6 +5,9 @@ include *.md
 include *.py
 include *.txt
 recursive-include branded_lms/public *
+include branded_lms/public/js/*.js
+include branded_lms/public/css/*.css
+include branded_lms/build.json
 recursive-include branded_lms *.css
 recursive-include branded_lms *.csv
 recursive-include branded_lms *.html
