@@ -8,7 +8,8 @@ app_license = "MIT"
 # Includes in <head>
 # Use the built CSS bundle generated via build.json
 app_include_css = "/assets/branded_lms/css/branded_lms.css"
-app_include_js = "/assets/branded_lms/js/branding.js"
+# Use the JavaScript bundle defined in build.json
+app_include_js = "/assets/branded_lms/js/branded_lms.js"
 
 # Fixtures (include all custom DocTypes, roles, permissions)
 fixtures = [
