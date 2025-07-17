@@ -18,7 +18,7 @@ function loadEducatorCourses() {
         return;
       }
 
-      const tableRows = data.message.map(course => \`
+      const tableRows = data.message.map(course => `
         <tr>
           <td>\${course.course}</td>
           <td>\${course.price_override || "-"}</td>
@@ -31,7 +31,7 @@ function loadEducatorCourses() {
           <tr><th>Course</th><th>Price Override</th></tr>
           \${tableRows}
         </table>
-      \`;
+      `;
     });
 }
 </script>

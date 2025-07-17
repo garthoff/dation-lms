@@ -18,7 +18,7 @@ function loadCompanyProgress() {
         return;
       }
 
-      const rows = data.message.map(row => \`
+      const rows = data.message.map(row => `
         <tr>
           <td>\${row.student}</td>
           <td>\${row.course}</td>
@@ -33,7 +33,7 @@ function loadCompanyProgress() {
           <tr><th>Student</th><th>Course</th><th>Status</th><th>Completed On</th></tr>
           \${rows}
         </table>
-      \`;
+      `;
     });
 }
 </script>
