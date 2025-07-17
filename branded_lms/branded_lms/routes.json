@@ -4,6 +4,11 @@
     "to_route": "hr_manager_dashboard",
     "role": "HR Manager"
   },
+    {
+    "from_route": "/kms/hr_manager_dashboard",
+    "to_route": "hr_manager_dashboard",
+    "role": "HR Manager"
+  },
   {
     "from_route": "/educator_dashboard",
     "to_route": "educator_dashboard",
@@ -18,5 +23,13 @@
     "from_route": "/company_dashboard",
     "to_route": "company_dashboard",
     "role": "Company"
+  },
+    {
+    "from_route": "/test2",
+    "to_route": "test2"
+  },
+    {
+    "from_route": "/lms/test2",
+    "to_route": "test2"
   }
 ]
