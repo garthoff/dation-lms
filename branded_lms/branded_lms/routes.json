@@ -25,8 +25,8 @@
     "role": "Company"
   },
     {
-    "from_route": "/test2",
-    "to_route": "test2"
+    "from_route": "/test1",
+    "to_route": "test1"
   },
     {
     "from_route": "/lms/test2",
