@@ -10,8 +10,8 @@ app_email = "info@yourcompany.com"
 app_license = "MIT"
 
 # Includes in <head>
-app_include_css = "/assets/branded_lms/branded_lms.bundle.css"
-app_include_js = "/assets/branded_lms/branded_lms.bundle.js"
+#app_include_css = "/assets/branded_lms/branded_lms.bundle.css"
+#app_include_js = "/assets/branded_lms/branded_lms.bundle.js"
 
 # Fixtures (include all custom DocTypes, roles, permissions)
 fixtures = [
@@ -32,30 +32,9 @@ fixtures = [
 # Website Routes
 # Website Routes (cleaned up)
 website_route_rules = [
-    {
-        "from_route": "/dl/hr_manager_dashboard",
-        "to_route": "hr_manager_dashboard"
-    },
-    {
-        "from_route": "/dl/educator_dashboard", 
-        "to_route": "educator_dashboard"
-    },
-    {
-        "from_route": "/dl/student_dashboard",
-        "to_route": "student_dashboard"
-    },
-    {
-        "from_route": "/dl/company_dashboard",
-        "to_route": "company_dashboard"
-    },
-    {
-        "from_route": "/dl/certificate_verify",
-        "to_route": "certificate_verify"
-    },
-    {
-        "from_route": "/test-basic",
-        "to_route": "test-basic"
-    }
+    {"from_route": "/dl/hr_manager_dashboard", "to_route": "hr_manager_dashboard"},
+    {"from_route": "/dl/certificate_verify", "to_route": "certificate_verify"},
+    {"from_route": "/test-basic", "to_route": "test-basic"}
 ]
 
 # Portal Setup
