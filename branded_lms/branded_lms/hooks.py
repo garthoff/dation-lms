@@ -32,15 +32,14 @@ fixtures = [
 ]
 
 # Website Routes
-website_routes = [
-    {"from_route": "/my-courses", "to_route": "branded_lms.www.my_courses"},
-    {"from_route": "/dashboard", "to_route": "branded_lms.www.dashboard"},
-    {"from_route": "/dashboard", "to_route": "branded_lms.www.dashboard"},{
+# Website Routes (cleaned up)
+website_route_rules = [
+    {
         "from_route": "/dl/hr_manager_dashboard",
         "to_route": "hr_manager_dashboard"
     },
     {
-        "from_route": "/dl/educator_dashboard",
+        "from_route": "/dl/educator_dashboard", 
         "to_route": "educator_dashboard"
     },
     {
@@ -50,11 +49,15 @@ website_routes = [
     {
         "from_route": "/dl/company_dashboard",
         "to_route": "company_dashboard"
-    },    
+    },
+    {
+        "from_route": "/dl/certificate_verify",
+        "to_route": "certificate_verify"
+    },
     {
         "from_route": "/test-basic",
         "to_route": "test-basic"
-    },
+    }
 ]
 
 # Portal Setup
