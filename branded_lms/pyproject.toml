@@ -1,0 +1,24 @@
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "branded_lms"
+version = "1.5.0"
+description = "LMS integration for Dation & Educators"
+authors = [
+    {name = "Your Company", email = "info@yourcompany.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "frappe"
+]
+license = {text = "MIT"}
+
+[project.urls]
+Homepage = "https://github.com/garthoff/dation-lms"
+Repository = "https://github.com/garthoff/dation-lms.git"
+
+[tool.frappe]
+frappe_version = ">=14.0.0"
