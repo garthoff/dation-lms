@@ -14,5 +14,11 @@
   {
     "from_route": "/dl/company_dashboard",
     "to_route": "company_dashboard"
+  },
+  {
+    "from_route": "/dl/certificate_verify",
+    "to_route": "certificate_verify"
   }
 ]
+
+

@@ -1,33 +1,351 @@
+{% extends "templates/web.html" %}
 
-<!-- hr_manager_dashboard.html -->
-<div class="dashboard">
-  <h2>HR Manager Dashboard</h2>
-  <div>
-    <label for="company">Select Company:</label>
-    <input type="text" id="company" placeholder="Company ID" />
-    <button onclick="loadProgress()">Load Progress</button>
-  </div>
-  <div id="progress-table"></div>
+{% block title %}HR Manager Dashboard{% endblock %}
+
+{% block head_include %}
+<style>
+    .dashboard-container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+    
+    .dashboard-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .control-panel {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        border: 1px solid #e9ecef;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #495057;
+    }
+    
+    .form-control {
+        width: 100%;
+        max-width: 300px;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    
+    .btn-load {
+        background: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.3s;
+    }
+    
+    .btn-load:hover {
+        background: #218838;
+    }
+    
+    .progress-table-container {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    
+    .progress-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+    }
+    
+    .progress-table th {
+        background: #495057;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+    }
+    
+    .progress-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .progress-table tr:hover {
+        background: #f8f9fa;
+    }
+    
+    .status-completed {
+        color: #28a745;
+        font-weight: 600;
+    }
+    
+    .status-pending {
+        color: #dc3545;
+        font-weight: 600;
+    }
+    
+    .loading {
+        text-align: center;
+        padding: 40px;
+        color: #6c757d;
+    }
+    
+    .error {
+        background: #f8d7da;
+        color: #721c24;
+        padding: 15px;
+        border-radius: 4px;
+        margin: 20px 0;
+        border: 1px solid #f5c6cb;
+    }
+    
+    .no-data {
+        text-align: center;
+        padding: 40px;
+        color: #6c757d;
+        font-style: italic;
+    }
+</style>
+{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <h1>🏢 HR Manager Dashboard</h1>
+            <p>Monitor employee learning progress and course completions</p>
+            {% if frappe.session.user != "Guest" %}
+                <small>Welcome, {{ frappe.session.user }}</small>
+            {% endif %}
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <h3>📊 Company Progress Report</h3>
+            <div class="form-group">
+                <label for="company">Company ID:</label>
+                <input type="text" 
+                       id="company" 
+                       class="form-control" 
+                       placeholder="Enter Company ID (e.g., COMP001)" 
+                       value="" />
+            </div>
+            <button class="btn-load" onclick="loadProgress()">
+                📈 Load Progress Report
+            </button>
+        </div>
+
+        <!-- Results Container -->
+        <div id="results-container" style="display: none;">
+            <div class="progress-table-container">
+                <div id="progress-table"></div>
+            </div>
+        </div>
+
+        <!-- Demo Data Button (for testing) -->
+        <div class="text-center mt-4">
+            <button class="btn btn-outline-primary" onclick="loadDemoData()">
+                🎯 Load Demo Data
+            </button>
+        </div>
+    </div>
 </div>
+{% endblock %}
 
+{% block script %}
 <script>
+$(document).ready(function() {
+    console.log('HR Manager Dashboard loaded successfully');
+    
+    // Allow Enter key to trigger search
+    $('#company').keypress(function(e) {
+        if (e.which == 13) {
+            loadProgress();
+        }
+    });
+});
+
 function loadProgress() {
-  const company = document.getElementById('company').value;
-  fetch('/api/method/branded_lms.api.lms_api.get_company_progress?company=' + company)
-    .then(res => res.json())
-    .then(data => {
-      const table = data.message.map(row => `
-        <tr>
-          <td>\${row.student}</td>
-          <td>\${row.course}</td>
-          <td>\${row.is_completed ? "✅" : "❌"}</td>
-          <td>\${row.completion_date || ""}</td>
-        </tr>\`).join('');
-      document.getElementById('progress-table').innerHTML = `
-        <table border="1" cellpadding="5">
-          <tr><th>Student</th><th>Course</th><th>Completed</th><th>Date</th></tr>
-           ${table}
-        </table>`;
+    const company = document.getElementById('company').value.trim();
+    
+    if (!company) {
+        showError('Please enter a Company ID');
+        return;
+    }
+    
+    showLoading();
+    
+    // Using Frappe's call method (recommended)
+    frappe.call({
+        method: 'branded_lms.api.lms_api.get_company_progress',
+        args: {
+            company: company
+        },
+        callback: function(response) {
+            console.log('API Response:', response);
+            
+            if (response.message && Array.isArray(response.message)) {
+                displayProgressTable(response.message, company);
+            } else {
+                showError('No data found for company: ' + company);
+            }
+        },
+        error: function(err) {
+            console.error('API Error:', err);
+            showError('Error loading data. Please check the company ID and try again.');
+        }
     });
 }
+
+function displayProgressTable(data, companyId) {
+    const resultsContainer = document.getElementById('results-container');
+    const tableContainer = document.getElementById('progress-table');
+    
+    if (data.length === 0) {
+        tableContainer.innerHTML = '<div class="no-data">No progress data found for this company.</div>';
+        resultsContainer.style.display = 'block';
+        return;
+    }
+    
+    // Generate table rows
+    const tableRows = data.map(row => `
+        <tr>
+            <td>${escapeHtml(row.student || 'N/A')}</td>
+            <td>${escapeHtml(row.course || 'N/A')}</td>
+            <td class="${row.is_completed ? 'status-completed' : 'status-pending'}">
+                ${row.is_completed ? '✅ Completed' : '⏳ In Progress'}
+            </td>
+            <td>${row.completion_date ? formatDate(row.completion_date) : 'N/A'}</td>
+            <td>${row.progress || 0}%</td>
+        </tr>
+    `).join('');
+    
+    // Calculate summary stats
+    const totalStudents = new Set(data.map(row => row.student)).size;
+    const completedCourses = data.filter(row => row.is_completed).length;
+    const completionRate = data.length > 0 ? Math.round((completedCourses / data.length) * 100) : 0;
+    
+    tableContainer.innerHTML = `
+        <div style="padding: 20px; background: #e9ecef; border-bottom: 1px solid #dee2e6;">
+            <h4>📈 Summary for ${escapeHtml(companyId)}</h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <strong>Total Students:</strong> ${totalStudents}
+                </div>
+                <div class="col-md-3">
+                    <strong>Total Enrollments:</strong> ${data.length}
+                </div>
+                <div class="col-md-3">
+                    <strong>Completed:</strong> ${completedCourses}
+                </div>
+                <div class="col-md-3">
+                    <strong>Completion Rate:</strong> ${completionRate}%
+                </div>
+            </div>
+        </div>
+        <table class="progress-table">
+            <thead>
+                <tr>
+                    <th>👤 Student</th>
+                    <th>📚 Course</th>
+                    <th>✅ Status</th>
+                    <th>📅 Completion Date</th>
+                    <th>📊 Progress</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${tableRows}
+            </tbody>
+        </table>
+    `;
+    
+    resultsContainer.style.display = 'block';
+}
+
+function loadDemoData() {
+    // Demo data for testing
+    const demoData = [
+        {
+            student: 'John Doe',
+            course: 'Safety Training 101',
+            is_completed: true,
+            completion_date: '2024-07-15',
+            progress: 100
+        },
+        {
+            student: 'Jane Smith',
+            course: 'Leadership Development',
+            is_completed: false,
+            completion_date: null,
+            progress: 75
+        },
+        {
+            student: 'Mike Johnson',
+            course: 'Technical Skills',
+            is_completed: true,
+            completion_date: '2024-07-10',
+            progress: 100
+        }
+    ];
+    
+    document.getElementById('company').value = 'DEMO-COMPANY';
+    displayProgressTable(demoData, 'DEMO-COMPANY');
+}
+
+function showLoading() {
+    const resultsContainer = document.getElementById('results-container');
+    const tableContainer = document.getElementById('progress-table');
+    
+    tableContainer.innerHTML = '<div class="loading">🔄 Loading progress data...</div>';
+    resultsContainer.style.display = 'block';
+}
+
+function showError(message) {
+    const resultsContainer = document.getElementById('results-container');
+    const tableContainer = document.getElementById('progress-table');
+    
+    tableContainer.innerHTML = `<div class="error">⚠️ ${escapeHtml(message)}</div>`;
+    resultsContainer.style.display = 'block';
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function formatDate(dateString) {
+    if (!dateString) return 'N/A';
+    
+    try {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        });
+    } catch (e) {
+        return dateString;
+    }
+}
 </script>
+{% endblock %}
